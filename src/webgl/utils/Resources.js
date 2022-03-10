@@ -88,7 +88,7 @@ export default class Resources extends EventEmitter {
     if(this.loaded === this.toLoad)
     {
       this.trigger(`sourcesReady${this.activeSceneName}`)
-      console.log('All resources needed are load');
+      // console.log('All resources needed are load');
     }
   }
 
@@ -98,7 +98,7 @@ export default class Resources extends EventEmitter {
     if(this.loaded === this.toLoad)
     {
       this.trigger(`sourcesReady${this.activeSceneName}`)
-      console.log('All resources needed are load');
+      // console.log('All resources needed are load');
     }
   }
 

@@ -20,12 +20,12 @@ export default class Bee
     this.resource = this.resources.items.beeModel
 
     this.setModel()
-    // this.setAnimation()
+    this.setAnimation()
   }
 
   setModel(){
     this.model = this.resource.scene
-    this.model.scale.set(0.02, 0.02, 0.02)
+    this.model.scale.set(0.06, 0.06, 0.06)
 
     this.model.traverse((child) =>
     {
@@ -46,41 +46,16 @@ export default class Bee
     this.animation.actions = {}
     
     this.animation.actions.idle = this.animation.mixer.clipAction(this.resource.animations[0])
-    this.animation.actions.walking = this.animation.mixer.clipAction(this.resource.animations[1])
-    this.animation.actions.running = this.animation.mixer.clipAction(this.resource.animations[2])
+    this.animation.actions.hover = this.animation.mixer.clipAction(this.resource.animations[1])
+    this.animation.actions.takeOff = this.animation.mixer.clipAction(this.resource.animations[2])
     
-    this.animation.actions.current = this.animation.actions.idle
+    this.animation.actions.current = this.animation.actions.hover
     this.animation.actions.current.play()
 
-    // Play the action
-    this.animation.play = (name) =>
-    {
-      const newAction = this.animation.actions[name]
-      const oldAction = this.animation.actions.current
-
-      newAction.reset()
-      newAction.play()
-      newAction.crossFadeFrom(oldAction, 1)
-
-      this.animation.actions.current = newAction
-    }
-
-    // Debug
-    if(this.debug.active)
-    {
-      const debugObject = {
-        playIdle: () => { this.animation.play('idle') },
-        playWalking: () => { this.animation.play('walking') },
-        playRunning: () => { this.animation.play('running') }
-      }
-      this.debugFolder.add(debugObject, 'playIdle')
-      this.debugFolder.add(debugObject, 'playWalking')
-      this.debugFolder.add(debugObject, 'playRunning')
-    }
   }
 
   update()
   {
-    // this.animation.mixer.update(this.time.delta * 0.001)
+    this.animation.mixer.update(this.time.delta * 0.001)
   }
 }
