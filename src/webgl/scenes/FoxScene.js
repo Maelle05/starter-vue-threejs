@@ -13,7 +13,7 @@ export default class FoxScene extends Group
     this.resources = this.webGl.resources
 
     // Wait for resources
-    this.resources.on('sources ready', () =>
+    this.resources.on(`sourcesReadyfox`, () =>
     {
       this.setup()
     })

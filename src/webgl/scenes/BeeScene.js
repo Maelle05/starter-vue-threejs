@@ -11,7 +11,7 @@ export default class BeeScene extends Group
     this.resources = this.webGl.resources
 
     // Wait for resources
-    this.resources.on('sources ready', () =>
+    this.resources.on(`sourcesReadybee`, () =>
     {
       this.setup()
     })

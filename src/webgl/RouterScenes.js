@@ -27,12 +27,6 @@ export default class RouterScenes {
   }
 
   rootChange(nameScene){
-
-    // test 
-    // while(this.currentScene.children.length != 0){
-    //   console.log(this.currentScene.children.length);
-    //   this.currentScene.remove(this.currentScene.children[0]); 
-    // }
     
     this.webGl.scene.remove(this.currentScene)
 
@@ -55,7 +49,7 @@ export default class RouterScenes {
     this.currentScene = this.allScenes[nameScene]
 
     this.webGl.scene.add(this.currentScene)
-    console.log(this.currentScene);
+
   }
 
   update(){
